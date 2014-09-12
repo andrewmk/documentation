@@ -2,6 +2,8 @@
 
 **New Out Of the Box Software** - an easy operating system install manager for the Raspberry Pi
 
+![NOOBS OS selection](images/noobs.png)
+
 ## How to get NOOBS
 
 ### Buy a pre-installed SD card
@@ -14,7 +16,7 @@ Alternatively, NOOBS is available for download on the Raspberry Pi website: [ras
 
 #### How to install NOOBS on an SD card
 
-Once you've downloaded the NOOBS zip file, you'll need to copy the contents to a fomatted SD card on your computer.
+Once you've downloaded the NOOBS zip file, you'll need to copy the contents to a formatted SD card on your computer.
 
 To set up a blank SD card with NOOBS:
 
@@ -31,7 +33,7 @@ For Windows users we recommend formatting your SD card using the SD Association'
 
 ##### Mac OS
 
-The SD Association's Formatting Tool is also available for Mac users, although the default OSX Disk Utility is also capable of formatting the entire disk. To do this, select the SD card volume and choose `Erase` with `MS-DOS` format.
+The [SD Association's Formatting Tool](https://www.sdcard.org/downloads/formatter_4/) is also available for Mac users, although the default OSX Disk Utility is also capable of formatting the entire disk. To do this, select the SD card volume and choose `Erase` with `MS-DOS` format.
 
 ##### Linux
 
@@ -41,14 +43,12 @@ For Linux users we recommend `gparted` (or the command line version `parted`). N
 
 The following Operating Systems are currently included in NOOBS:
 
-- Raspbian
-- OpenELEC
-- RISC OS
-- Arch Linux
-- RaspBMC
-- Pidora
-
-You can read more about the different [distributions](distributions.md).
+- [Raspbian](http://raspbian.org/)
+- [Pidora](http://pidora.ca/)
+- [OpenELEC](http://wiki.openelec.tv/index.php?title=Raspberry_Pi_FAQ)
+- [RaspBMC](http://www.raspbmc.com/)
+- [RISC OS](https://www.riscosopen.org/wiki/documentation/show/Welcome%20to%20RISC%20OS%20Pi)
+- [Arch Linux](http://archlinuxarm.org/platforms/armv6/raspberry-pi)
 
 ## NOOBS and NOOBS Lite
 
@@ -62,7 +62,7 @@ Note that the operating system images on the full version can be outdated if a n
 
 ### Latest NOOBS release
 
-The latest NOOBS release is **v1.3.4**, released on **9th January 2014**.
+The latest NOOBS release is **v1.3.9**, released on **8th July 2014**.
 
 ### NOOBS Documentation
 

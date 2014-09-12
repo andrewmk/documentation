@@ -1,6 +1,6 @@
 # Raspberry Pi Camera Module
 
-This document describes the use of the three Raspberry Pi camera applications as of December 7th 2013.
+This document describes the use of the three Raspberry Pi camera applications as of June 19th 2014.
 
 There are three applications provided, raspistill, raspivid and raspistillyuv. raspistill and raspistillyuv are very similar and are intended for capturing images, raspivid is for capturing video.
 
@@ -16,11 +16,11 @@ Command line help is available by typing just the application name in on the com
 
 ## Setting up
 
-See [Camera Setup](../../../blob/master/configuration/camera.md)
+See [Camera Setup](../../configuration/camera.md)
 
 ## Troubleshooting
 
-See [Camera TroubleShooting](../../../blob/master/troubleshooting/hardware/camera.md)
+See [Camera TroubleShooting](../../troubleshooting/hardware/camera.md)
 
 ## Common Command line Options
 
@@ -64,6 +64,7 @@ set the colour saturation of the image. 0 is the default.
 	--ISO,       	-ISO	Set capture ISO
 
 Sets the ISO to be used for captures. Range is 100 to 800.
+
 	--vstab,     	-vs  	Turn on video stabilisation
 
 In video mode only, turn on video stabilisation.
@@ -167,20 +168,32 @@ Flips the preview and saved image vertically.
 	--roi,		-roi	Set sensor region of interest 
 
 Allows the specification of the area of the sensor to be used as the source for the preview and capture. This is defined as x,y for the top left corner, and a width and height, all values in normalised coordinates (0.0-1.0). So to set a ROI at half way across and down the sensor, and an width and height of a quarter of the sensor use :
-
+```
 		-roi 0.5,0.5,0.25,0.25
+```		
 
-	--shutter,	-ss	Set shutter speed
+    --shutter,	-ss	Set shutter speed
 
 Set the shutter speed to the specified value (in microseconds). There is currently an upper limit of approximately 330000us (330ms, 0.33s) past which operation is undefined. This is being investigated.
+
+	--drc,		-drc	Enable/Disable Dynamic Range compression
+	
+DRC changes the images by increasing the range of dark areas of the image, and decreasing the brighter areas. This can improve the image in low light areas. By default, DRC is off.
+
+* off
+* low
+* medium
+* high
+ 
+
 
 ##Application specific settings
 
 ###raspistill
 
-  --width,    -w		Set image width <size>
-  --height,   -h		Set image height <size>
-  --quality,  -q		Set jpeg quality <0 to 100>
+    --width,    -w		Set image width <size>
+    --height,   -h		Set image height <size>
+    --quality,  -q		Set jpeg quality <0 to 100>
 
 Quality 100 is almost completely uncompressed. 75 is a good all round value
 
@@ -210,7 +223,7 @@ The specific value is the time between shots in milliseconds. Note you should sp
 
 		-t 30000 -tl 2000 -o image%04d.jpg
 
-will produce a capture every 2 seconds, over a total period of 30s, named image1.jpg, image0002.jpg..image0015.jpg. Note that the %04d indicates a 4 digit number with leading zero's added to pad to the required number of digits. So, for example,  %08d would result in an 8 digit number.
+will produce a capture every 2 seconds, over a total period of 30s, named image0001.jpg, image0002.jpg..image0015.jpg. Note that the %04d indicates a 4 digit number with leading zero's added to pad to the required number of digits. So, for example,  %08d would result in an 8 digit number.
 
 If a timelapse value of 0 is entered, the application will take pictures as fast as possible. Note there is an minimum enforced pause of 30ms between captures to ensure that exposure calculations can be made. 
 
@@ -482,7 +495,9 @@ Encode a 5s camera stream and send image data to file
 
 The applications described here will return a standard error code to the shell on completion. Possible error codes are : 
 
-* EX_OK		0	Application ran successfully.
-* EX_USAGE	64	Bad command line parameter
-* EX_SOFTWARE	70	Software or camera error
-* 		130	Application terminated by ctrl-C.
+| C Define | Code | Description |
+|----------|------|-------------|
+| EX_OK	| 0 | Application ran successfully|
+| EX_USAGE | 64 | Bad command line parameter |
+| EX_SOFTWARE | 70 | Software or camera error |
+| 	| 130 | Application terminated by ctrl-C |

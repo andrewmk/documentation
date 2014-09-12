@@ -20,6 +20,8 @@ Explanation of some fundamental Linux usage and commands for getting around the 
         - Setting up multiple Linux users on your Pi system
     - [Root](usage/root.md)
         - The `root` user and the `sudo` prefix
+    - [Scripting](usage/scripting.md)
+        - Combining commands to produce more complex actions
     - [Cron / Crontab](usage/cron.md)
         - Setting up scheduled tasks
     - [.bashrc and .bash_aliases](usage/bashrc.md)
@@ -42,5 +44,7 @@ Explanation of some fundamental Linux usage and commands for getting around the 
         - Building the Linux kernel on Raspberry Pi
     - [Configuring](kernel/configuring.md)
         - Configuring the Linux kernel on Raspberry Pi
+    - [Patching](kernel/patching.md)
+        - Applying patches to the Linux kernel on Raspberry Pi
     - [Headers](kernel/headers.md)
         - Getting the kernel headers

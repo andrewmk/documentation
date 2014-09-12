@@ -1,5 +1,7 @@
 # Raspberry Pi Documentation
 
+[![Build Status](https://travis-ci.org/raspberrypi/documentation.svg?branch=master)](https://travis-ci.org/raspberrypi/documentation)
+
 This is the official documentation for the Raspberry Pi, written by the [Raspberry Pi Foundation](http://raspberrypi.org).
 
 ## Contents
@@ -8,8 +10,8 @@ This is the official documentation for the Raspberry Pi, written by the [Raspber
     - Getting started with your Raspberry Pi, including what you need and how to get it booted
 - [Installation](installation/README.md)
     - Installing an operating system on your Raspberry Pi
-- [Usage](usage/README.md)
-    - Basic examples to help you get started with the software installed by default in Raspbian
+- [Usage Guide](usage/README.md)
+    - Explore the desktop and try out all the main applications
 - [Configuration](configuration/README.md)
     - Configuring the Pi's settings to suit your needs
 - [Remote Access](remote-access/README.md)
@@ -33,10 +35,10 @@ See our [contributing policy](CONTRIBUTING.md).
 
 ## Licence
 
-Unless otherwise specified, everything in this repository is covered by the following license:
+Unless otherwise specified, everything in this repository is covered by the following licence:
 
-![Creative Commons License](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+[![Creative Commons Attribution-ShareAlike 4.0 International](http://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-**Raspberry Pi Documentation** by the [Raspberry Pi Foundation](http://www.raspberrypi.org) is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+***Raspberry Pi Documentation*** by the [Raspberry Pi Foundation](http://www.raspberrypi.org) is licensed under a [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by-sa/4.0/).
 
-Based on a work at [https://github.com/raspberrypi/documentation](https://github.com/raspberrypi/documentation).
+Based on a work at https://github.com/raspberrypi/documentation

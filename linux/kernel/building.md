@@ -18,10 +18,16 @@ Add missing dependencies:
 $ sudo apt-get install bc
 ```
 
+Configure the kernel - as well as the default configuration you may wish to [configure your kernel in more detail](configuring.md) or [apply patches from another source](patching.md) to add or remove required functionality:
+
+```
+$ cd linux
+$ make bcmrpi_defconfig
+```
+
 Build the kernel; this step takes a **lot** of time...
 
 ```
-$ make bcmrpi_defconfig
 $ make
 $ make modules
 $ sudo make modules_install
@@ -33,7 +39,7 @@ $ sudo cp arch/arm/boot/Image /boot/kernel.img
 First you are going to require a suitable Linux cross-compilation host. We tend to use Ubuntu; since Raspbian is 
 also a Debian distribution it means using similar command lines and so on.
 
-You can either do this using VirtualBox (or VMWare) on Windows, or install it directly onto your computer. For reference you can follow instructions online [at Wikihow] (http://www.wikihow.com/Install-Ubuntu-on-VirtualBox).
+You can either do this using VirtualBox (or VMWare) on Windows, or install it directly onto your computer. For reference you can follow instructions online [at Wikihow](http://www.wikihow.com/Install-Ubuntu-on-VirtualBox).
 
 ### Install toolchain
 
@@ -43,11 +49,11 @@ Use the following command:
 $ git clone https://github.com/raspberrypi/tools
 ```
 
-You can then copy the toolchain to a common location such as `/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian`, and add a path to that directory into the .bashrc in your home directory. While this step is not strictly necessary, it does make it easier for later command lines!
+You can then copy the toolchain to a common location such as `/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian`, and add `/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin` to your $PATH in the .bashrc in your home directory. While this step is not strictly necessary, it does make it easier for later command lines!
 
 ### Get sources
 
-To get the sources, refer to the original [GitHub] (https://github.com/raspberrypi/linux
+To get the sources, refer to the original [GitHub](https://github.com/raspberrypi/linux
 ) repository for the various branches.
 ```
 $ git clone --depth=1 https://github.com/raspberrypi/linux
@@ -61,7 +67,7 @@ Enter the following commands to build the sources:
 
 ```
 $ cd linux
-$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi-defconfig
+$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig
 $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
 ```
 
@@ -110,13 +116,22 @@ $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 mod
 $ sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=mnt/ext4 modules_install
 ```
 
-Finally, copy the kernel onto the SD card:
+Finally, copy the kernel onto the SD card, making sure to back up your old kernel:
 
 ```
+$ sudo cp mnt/fat32/kernel.img mnt/fat32/kernel-backup.img
 $ sudo cp arch/arm/boot/Image mnt/fat32/kernel.img
 $ sudo umount mnt/fat32
 $ sudo umount mnt/ext4
 ```
+
+Another option is to copy the kernel into the same place, but with a different filename - for instance, kernel-myconfig.img - rather than overwriting the kernel.img file. You can then edit the config.txt file to select the kernel that the Pi will boot into.
+
+```
+kernel=kernel-myconfig.img
+```
+
+This has the advantage of keeping your kernel separate from the kernel image managed by the system and any automatic update tools, and allowing you to easily revert to a stock kernel in the event that your kernel cannot boot.
 
 Unplug the card and boot the Pi!
 
